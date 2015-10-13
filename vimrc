@@ -7,6 +7,7 @@ set smartcase
 set laststatus=2
 set wildmenu
 set showcmd
+set backspace=2 " make backspace work like most other apps
 
 " timouts in reasonable amout of time
 
