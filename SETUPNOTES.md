@@ -9,7 +9,8 @@ Notes to self about how I configured vim.
 ```
 mkdir ~/.vimswap
 mkdir ~/.vim
-git clone git@github.com:brodieG/vim.git ~/.vim
+# git clone git@github.com:brodieG/vim.git ~/.vim
+git clone https://github.com/brodieG/vim.git ~/.vim
 echo "source ~/.vim/vimrc" > ~/.vimrc
 ```
 
