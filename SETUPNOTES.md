@@ -4,6 +4,15 @@
 
 Notes to self about how I configured vim.
 
+## Cloning
+
+```
+mkdir ~/.vimswap
+mkdir ~/.vim
+git clone git@github.com:brodieG/vim.git ~/.vim
+echo "source ~/.vim/vimrc" > ~/.vimrc
+```
+
 ## Vim Installation
 
 Stuck at 7.3 on OSX 10.9.5, so upgrading:
