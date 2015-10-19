@@ -1,6 +1,3 @@
-set expandtab
-set shiftwidth=2
-set softtabstop=2
 set hidden
 set ignorecase
 set smartcase
@@ -8,6 +5,15 @@ set laststatus=2
 set wildmenu
 set showcmd
 set backspace=2 " make backspace work like most other apps
+set dir=~/.vimswap//,.,~/tmp,/var/tmp,/tmp
+
+" Indentation and spacing
+
+set expandtab
+set shiftwidth=2
+set softtabstop=2
+set autoindent
+set smartindent
 
 " timouts in reasonable amout of time
 
@@ -18,6 +24,10 @@ set ttimeout ttimeoutlen=100
 
 let mapleader = "\<Space>"
 nnoremap <Space> <Nop>
+
+" to avoid accidentally hitting ZZ instead of zz
+
+nnoremap ZZ <Nop>
 
 " copy paste to system clipboard
 
