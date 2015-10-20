@@ -10,7 +10,7 @@ Notes to self about how I configured vim.
 mkdir ~/.vimswap
 mkdir ~/.vim
 # git clone git@github.com:brodieG/vim.git ~/.vim
-git clone https://github.com/brodieG/vim.git ~/.vim
+git clone --recursive https://github.com/brodieG/vim.git ~/.vim
 echo "source ~/.vim/vimrc" > ~/.vimrc
 ```
 
@@ -41,6 +41,7 @@ Using `pathogen`.  General methodology is to use git submodules to install plugi
 cd ~/.vim/bundle
 git submodule add https://github.com/tpope/vim-unimpaired.git \
  vim-unimpaired
+git submodule add https://github.com/scrooloose/nerdtree.git
 ```
 
 It seems like we need to be in the `bundle` directory otherwise annoying stuff happens with gitignore, etc.
