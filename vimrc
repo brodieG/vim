@@ -2,10 +2,15 @@ set hidden
 set ignorecase
 set smartcase
 set laststatus=2
-set wildmenu
+set wildmenu wildmode=longest:full,full
 set showcmd
 set backspace=2 " make backspace work like most other apps
 set dir=~/.vimswap//,.,~/tmp,/var/tmp,/tmp
+
+" Folding
+
+set foldenable
+set foldlevelstart=10
 
 " Indentation and spacing
 
@@ -49,6 +54,15 @@ nnoremap K <c-u>
 vnoremap J <c-d>
 vnoremap K <c-u>
 
+nnoremap j gj
+nnoremap k gk
+
+set scrolloff=10
+
+" highlight last inserted text
+
+nnoremap gV `[v`]
+
 " split and join lines
 
 nnoremap <c-j> J
@@ -58,34 +72,39 @@ nnoremap <c-k> i<CR><ESC>
 
 nnoremap <TAB> :b#<CR>
 
-" search in very unmagic by default
-
-nnoremap / /\V
-vnoremap / /\V
-
-" jk to exit interactive mode 
+" jk to exit interactive mode
 
 inoremap jk <ESC>
 
 " Search settings
-" This unsets the "last search pattern" register by hitting return
+"   unset the "last search pattern" register by hitting return
+"   search in very unmagic by default
 
 nnoremap <CR> :noh<CR><CR>
 
 set incsearch
 set hlsearch
 
+nnoremap / /\V
+vnoremap / /\V
+
+" Plugins
+
 execute pathogen#infect()
+execute pathogen#helptags()
 syntax on
 filetype plugin indent on
 au BufNewFile,BufRead *.Rmd set filetype=Rmd
-set linebreak
-set colorcolumn=81
-set number
+
+" whitespace trimming
 
 autocmd FileType R,md,Rmd,js,css,c autocmd BufWritePre <buffer> StripWhitespace
 
-" highlight gutter
+" Appearance, etc, after plugins to override
+
+set linebreak
+set colorcolumn=81
+set number
 
 set t_Co=256
 set number
