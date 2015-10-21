@@ -35,6 +35,7 @@ Also, major PITA but patogen stuff will not load if we rely on `.vim/vimrc` so w
 
 ## Plugins
 
+### Install Notes
 Using `pathogen`.  General methodology is to use git submodules to install plugins to the extent they are on git:
 
 ```
@@ -45,3 +46,12 @@ git submodule add https://github.com/scrooloose/nerdtree.git
 ```
 
 It seems like we need to be in the `bundle` directory otherwise annoying stuff happens with gitignore, etc.
+
+### Plugin Notes
+
+####
+
+ctrl-space: seems interesting, but perhaps more complicated than I need.  Main issue is that it appears to require too many keystrokes to do what I want (open a file).  It's nice that it start by showing the open buffers.
+
+ctrl-p: seems like a good match, especially in mixed mode.  Shame it doesn't default by showing buffers, or doesn't show status like `:ls` does.
+

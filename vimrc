@@ -1,3 +1,4 @@
+set nocompatible
 set hidden
 set ignorecase
 set smartcase
@@ -6,6 +7,7 @@ set wildmenu wildmode=longest:full,full
 set showcmd
 set backspace=2 " make backspace work like most other apps
 set dir=~/.vimswap//,.,~/tmp,/var/tmp,/tmp
+syntax on
 
 " Folding
 
@@ -92,9 +94,11 @@ vnoremap / /\V
 
 execute pathogen#infect()
 execute pathogen#helptags()
-syntax on
 filetype plugin indent on
 au BufNewFile,BufRead *.Rmd set filetype=Rmd
+
+nnoremap <Leader>t :CtrlPMixed<CR>
+let g:ctrlp_by_filename = 0
 
 " whitespace trimming
 
