@@ -13,7 +13,10 @@ mkdir ~/.vim
 git clone --recursive https://github.com/brodieG/vim.git ~/.vim
 echo "source ~/.vim/vimrc" > ~/.vimrc
 ```
-
+Then, to update:
+```
+git pull && git submodule update --init --recursive
+```
 ## Vim Installation
 
 Stuck at 7.3 on OSX 10.9.5, so upgrading:
