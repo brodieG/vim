@@ -98,7 +98,11 @@ filetype plugin indent on
 au BufNewFile,BufRead *.Rmd set filetype=Rmd
 
 nnoremap <Leader>t :CtrlPMixed<CR>
-let g:ctrlp_by_filename = 0
+let g:ctrlp_by_filename = 1
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_mruf_max = 0
+
+let g:scratch_height = 0.5
 
 " whitespace trimming
 
