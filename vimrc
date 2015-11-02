@@ -9,6 +9,10 @@ set backspace=2 " make backspace work like most other apps
 set dir=~/.vimswap//,.,~/tmp,/var/tmp,/tmp
 syntax on
 
+" files to ignore, used right now for CtrlP
+
+set wildignore+=*.o,*.so
+
 " Folding
 
 set foldenable
