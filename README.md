@@ -4,6 +4,19 @@
 
 Notes to self about how I configured vim.
 
+## Offline wishlist
+
+This stuff should get migrated to git issues, but here to note offline wishlist.
+
+* Search / Replace shortcuts
+    * Seach in visual selection / brackets
+* Navigation
+    * Ideally different level of modifiers lead to different levels of movements
+    * Go to end of visual selection with (or beginning) rather annoying
+* Funny deletions
+    * Clear line but don't delete it
+    * Clear leading and trailing whitespace
+
 ## Cloning
 
 ```
@@ -56,5 +69,5 @@ It seems like we need to be in the `bundle` directory otherwise annoying stuff h
 
 ctrl-space: seems interesting, but perhaps more complicated than I need.  Main issue is that it appears to require too many keystrokes to do what I want (open a file).  It's nice that it start by showing the open buffers.
 
-ctrl-p: seems like a good match, especially in mixed mode.  Shame it doesn't default by showing buffers, or doesn't show status like `:ls` does.
+ctrl-p: seems like a good match, especially in mixed mode.  Shame it doesn't default by showing buffers, or doesn't show status like `:ls` does.  Also, not clear that it actually works with putty.
 
