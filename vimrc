@@ -107,12 +107,14 @@ nnoremap <Leader>t :CtrlPMixed<CR>
 let g:ctrlp_by_filename = 1
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_mruf_max = 0
+" Clear CtrlP cache when coming back to vim and after writing a file.
+au FocusGained,BufWritePost * :CtrlPClearCache
 
 let g:scratch_height = 0.5
 
 " whitespace trimming
 
-autocmd FileType R,md,Rmd,js,css,c autocmd BufWritePre <buffer> StripWhitespace
+autocmd FileType R,md,Rmd,js,css,c,h autocmd BufWritePre <buffer> StripWhitespace
 
 " Appearance, etc, after plugins to override
 
@@ -127,3 +129,8 @@ hi cursorline cterm=none
 hi cursorlinenr ctermbg=3 ctermfg=black
 hi Comment ctermfg=darkgrey
 
+" autosave and auto-reload; first saves whenever we lose focus leave, the
+" other kicks off autoread (thanks fphilipe)
+
+au FocusLost,WinLeave * :silent! wa
+au FocusGained,BufEnter * :silent! !
