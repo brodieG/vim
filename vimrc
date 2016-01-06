@@ -80,10 +80,9 @@ nnoremap <c-k> i<CR><ESC>
 
 nnoremap <TAB> :b#<CR>
 
-" jk to exit interactive mode, jj to exit interactive mode and save!
+" jk to exit interactive mode
 
 inoremap jk <ESC>l
-inoremap jj <ESC>l:w<CR>
 
 " Search settings:
 "   unset the "last search pattern" register by hitting return
