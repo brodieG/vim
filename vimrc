@@ -86,15 +86,19 @@ inoremap jk <ESC>l
 
 " Search settings:
 "   unset the "last search pattern" register by hitting return
-"   search in very unmagic by default
+"   <Leader>s makes it easier to search / replace, or search alone, and also
+"   takes advantage of pre-selected visual ranges
 
 nnoremap <CR> :noh<CR><CR>
 
 set incsearch
 set hlsearch
 
-nnoremap / /\V
-vnoremap / /\V
+nnoremap <Leader>s :s///gc<left><left><left><left>
+vnoremap <Leader>s :s///gc<left><left><left><left>
+
+nnoremap <Leader>S :s///g<left><left><left>
+vnoremap <Leader>S :s///g<left><left><left>
 
 " Plugins
 
