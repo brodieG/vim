@@ -94,11 +94,14 @@ nnoremap <CR> :noh<CR><CR>
 set incsearch
 set hlsearch
 
-nnoremap <Leader>s :s///gc<left><left><left><left>
+nnoremap <Leader>s :%s///gc<left><left><left><left>
 vnoremap <Leader>s :s///gc<left><left><left><left>
 
 nnoremap <Leader>S :s///g<left><left><left>
 vnoremap <Leader>S :s///g<left><left><left>
+
+nnoremap <Leader>g :grep * -r<left><left><left><left>
+vnoremap <Leader>g :grep * -r<left><left><left><left>
 
 " Plugins
 
