@@ -108,36 +108,58 @@ vnoremap <Leader>g :grep * -r<left><left><left><left>
 execute pathogen#infect()
 execute pathogen#helptags()
 filetype plugin indent on
-au BufNewFile,BufRead *.Rmd set filetype=Rmd
+augroup rmd
+  autocmd!
+  au BufNewFile,BufRead *.Rmd set filetype=Rmd
+augroup END
 
 nnoremap <Leader>t :CtrlPMixed<CR>
 let g:ctrlp_by_filename = 1
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_mruf_max = 0
 " Clear CtrlP cache when coming back to vim and after writing a file.
-au FocusGained,BufWritePost * :CtrlPClearCache
+augroup ctrpl
+  autocmd!
+  au FocusGained,BufWritePost * CtrlPClearCache
+augroup END
 
 let g:scratch_height = 0.5
 
 " whitespace trimming
 
-autocmd FileType R,md,Rmd,js,css,c,h autocmd BufWritePre <buffer> StripWhitespace
+augroup whitespace
+  autocmd!
+  autocmd FileType R,md,Rmd,js,css,c,h autocmd BufWritePre <buffer> StripWhitespace
+augroup END
 
 " Appearance, etc, after plugins to override
 
 set linebreak
 set colorcolumn=81
-set number
 
 set t_Co=256
-set number
 set cursorline
 hi cursorline cterm=none
 hi cursorlinenr ctermbg=3 ctermfg=black
 hi Comment ctermfg=darkgrey
 
+" linenumbers " http://jeffkreeftmeijer.com/2012/relative-line-numbers-in-vim-for-super-fast-movement/
+" unfortunately focus/window events don't seem to work on mac terminal
+
+set relativenumber
+augroup numbers
+  autocmd!
+  au FocusLost * set norelativenumber
+  au FocusGained * set relativenumber
+  au InsertEnter * set norelativenumber
+  au InsertLeave * set relativenumber
+augroup END
+
 " autosave and auto-reload; first saves whenever we lose focus leave, the
 " other kicks off autoread (thanks fphilipe)
 
-au FocusLost,WinLeave * :silent! wa
-au FocusGained,BufEnter * :silent! !
+augroup autosave
+  autocmd!
+  au FocusLost,WinLeave * silent! wa
+  au FocusGained,BufEnter * silent! !
+augroup END
