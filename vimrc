@@ -157,10 +157,12 @@ augroup numbers
 augroup END
 
 " autosave and auto-reload; first saves whenever we lose focus leave, the
-" other kicks off autoread (thanks fphilipe)
+" other kicks off autoread (thanks fphilipe); seems like the focus events
+" don't seem to work
 
 augroup autosave
   autocmd!
-  au FocusLost,WinLeave * silent! wa
-  au FocusGained,BufEnter * silent! !
+  au InsertLeave * w
+  " au FocusLost,WinLeave * silent! wa
+  " au FocusGained,BufEnter * silent! !
 augroup END
