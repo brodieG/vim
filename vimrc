@@ -65,7 +65,7 @@ vnoremap K <c-u>
 nnoremap j gj
 nnoremap k gk
 
-set scrolloff=10
+set scrolloff=5
 
 " highlight last inserted text
 
@@ -94,11 +94,11 @@ nnoremap <CR> :noh<CR><CR>
 set incsearch
 set hlsearch
 
-nnoremap <Leader>s :%s///gc<left><left><left><left>
-vnoremap <Leader>s :s///gc<left><left><left><left>
+nnoremap <Leader>s :%s//gc<left><left><left>
+vnoremap <Leader>s :s//gc<left><left><left>
 
-nnoremap <Leader>S :s///g<left><left><left>
-vnoremap <Leader>S :s///g<left><left><left>
+nnoremap <Leader>S :s//g<left><left>
+vnoremap <Leader>S :s//g<left><left>
 
 nnoremap <Leader>g :grep * -r<left><left><left><left>
 vnoremap <Leader>g :grep * -r<left><left><left><left>
@@ -146,12 +146,13 @@ hi Comment ctermfg=darkgrey
 " linenumbers " http://jeffkreeftmeijer.com/2012/relative-line-numbers-in-vim-for-super-fast-movement/
 " unfortunately focus/window events don't seem to work on mac terminal
 
+set number
 set relativenumber
 augroup numbers
   autocmd!
   au FocusLost * set norelativenumber
   au FocusGained * set relativenumber
-  au InsertEnter * set norelativenumber
+  au InsertEnter * set norelativenumber | set number
   au InsertLeave * set relativenumber
 augroup END
 
