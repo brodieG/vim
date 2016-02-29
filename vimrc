@@ -89,7 +89,7 @@ inoremap jk <ESC>l
 "   <Leader>s makes it easier to search / replace, or search alone, and also
 "   takes advantage of pre-selected visual ranges
 
-nnoremap <CR> :noh<CR><CR>
+nnoremap <CR> :noh<CR>
 
 set incsearch
 set hlsearch
@@ -104,6 +104,9 @@ nnoremap <Leader>g :grep * -r<left><left><left><left>
 vnoremap <Leader>g :grep * -r<left><left><left><left>
 
 " Plugins
+" temporarily disable plugins 
+let g:pathogen_disabled = []
+call add(g:pathogen_disabled,'R-Vim-runtime')
 
 execute pathogen#infect()
 execute pathogen#helptags()
@@ -148,6 +151,7 @@ hi Comment ctermfg=darkgrey
 
 set number
 set relativenumber
+
 augroup numbers
   autocmd!
   au FocusLost * set norelativenumber
