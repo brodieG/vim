@@ -38,6 +38,11 @@ set ttimeout ttimeoutlen=100
 let mapleader = "\<Space>"
 nnoremap <Space> <Nop>
 
+" edit source vim file easily
+
+nnoremap <Leader>ve :edit $HOME/.vim/vimrc<CR>
+nnoremap <Leader>vs :source $MYVIMRC<CR>
+
 " to avoid accidentally hitting ZZ instead of zz
 
 nnoremap ZZ <Nop>
@@ -65,6 +70,11 @@ vnoremap K <c-u>
 nnoremap j gj
 nnoremap k gk
 
+nnoremap H ^
+nnoremap L $
+vnoremap H ^
+vnoremap L $
+
 set scrolloff=5
 
 " highlight last inserted text
@@ -76,13 +86,19 @@ nnoremap gV `[v`]
 nnoremap <c-j> J
 nnoremap <c-k> i<CR><ESC>
 
-" TAB switches to previous buffer
+" TAB switches to previous buffer in normal, autocompletes in insert
 
 nnoremap <TAB> :b#<CR>
+inoremap <TAB> <c-n>
+inoremap <S-Tab> <c-p>
 
 " jk to exit interactive mode
 
 inoremap jk <ESC>l
+
+" auto braces; need to figure out better options for parens, quotes, etc
+
+inoremap { {<CR>}<ESC>O
 
 " Search settings:
 "   unset the "last search pattern" register by hitting return
@@ -104,7 +120,7 @@ nnoremap <Leader>g :grep * -r<left><left><left><left>
 vnoremap <Leader>g :grep * -r<left><left><left><left>
 
 " Plugins
-" temporarily disable plugins 
+" temporarily disable plugins
 let g:pathogen_disabled = []
 call add(g:pathogen_disabled,'R-Vim-runtime')
 
@@ -128,12 +144,15 @@ augroup END
 
 let g:scratch_height = 0.5
 
-" whitespace trimming
+" whitespace trimming; for now don't do it auto anymore to avoid issues with
+" contributions to other repos
 
-augroup whitespace
-  autocmd!
-  autocmd FileType R,md,Rmd,js,css,c,h autocmd BufWritePre <buffer> StripWhitespace
-augroup END
+" augroup whitespace
+"   autocmd!
+"   autocmd FileType R,md,Rmd,js,css,c,h autocmd BufWritePre <buffer> StripWhitespace
+" augroup END
+
+nnoremap <Leader>x :StripWhitespace<CR>:write<CR>
 
 " Appearance, etc, after plugins to override
 
