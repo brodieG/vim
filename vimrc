@@ -74,6 +74,8 @@ nnoremap H ^
 nnoremap L $
 vnoremap H ^
 vnoremap L $
+onoremap H ^
+onoremap L $
 
 set scrolloff=5
 
@@ -98,7 +100,7 @@ inoremap jk <ESC>l
 
 " auto braces; need to figure out better options for parens, quotes, etc
 
-inoremap { {<CR>}<ESC>O
+inoremap { {}<ESC>i
 
 " Search settings:
 "   unset the "last search pattern" register by hitting return

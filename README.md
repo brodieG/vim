@@ -8,13 +8,10 @@ Notes to self about how I configured vim.
 
 This stuff should get migrated to git issues, but here to note offline wishlist.
 
-* Search / Replace shortcuts
-    * Seach in visual selection / brackets
 * Navigation
     * Ideally different level of modifiers lead to different levels of movements
     * Go to end of visual selection with (or beginning) rather annoying
 * Funny deletions
-    * Clear line but don't delete it
     * Clear leading and trailing whitespace
 
 ## Cloning
