@@ -70,12 +70,12 @@ vnoremap K <c-u>
 nnoremap j gj
 nnoremap k gk
 
-nnoremap H ^
-nnoremap L $
-vnoremap H ^
-vnoremap L $
-onoremap H ^
-onoremap L $
+nnoremap H g^
+nnoremap L g$
+vnoremap H g^
+vnoremap L g$
+onoremap H g^
+onoremap L g$
 
 set scrolloff=5
 
@@ -125,6 +125,8 @@ vnoremap <Leader>g :grep * -r<left><left><left><left>
 " temporarily disable plugins
 let g:pathogen_disabled = []
 call add(g:pathogen_disabled,'R-Vim-runtime')
+call add(g:pathogen_disabled,'nerdtree')
+call add(g:pathogen_disabled,'vim-markdown')
 
 execute pathogen#infect()
 execute pathogen#helptags()
@@ -160,6 +162,7 @@ nnoremap <Leader>x :StripWhitespace<CR>:write<CR>
 
 set linebreak
 set colorcolumn=81
+set ruler
 
 set t_Co=256
 set cursorline
