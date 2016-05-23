@@ -18,7 +18,6 @@ set wildignore+=*.o,*.so
 set foldenable
 set foldmethod=indent
 set foldlevelstart=10
-hi Folded ctermbg=NONE ctermfg=DarkGrey
 
 " Indentation and spacing
 
