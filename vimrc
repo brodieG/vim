@@ -103,11 +103,11 @@ inoremap jk <ESC>l
 inoremap { {}<ESC>i
 
 " Search settings:
-"   unset the "last search pattern" register by hitting return
+"   unset the "last search pattern"
 "   <Leader>s makes it easier to search / replace, or search alone, and also
 "   takes advantage of pre-selected visual ranges
 
-nnoremap <CR> :noh<CR>
+nnoremap <Leader>c :noh<CR>
 
 set incsearch
 set hlsearch
