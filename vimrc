@@ -37,6 +37,16 @@ set ttimeout ttimeoutlen=100
 let mapleader = "\<Space>"
 nnoremap <Space> <Nop>
 
+" Select inside curly braces
+
+nnoremap <Leader><Space> vi{
+vnoremap <Leader><Space> i{
+
+" Insert remove spaces
+
+nnoremap <Leader>o o<ESC>
+nnoremap <Leader>O O<ESC>
+
 " edit source vim file easily
 
 nnoremap <Leader>ve :edit $HOME/.vim/vimrc<CR>
@@ -86,6 +96,10 @@ nnoremap gV `[v`]
 
 nnoremap <c-j> J
 nnoremap <c-k> i<CR><ESC>
+
+" Clear a line
+
+nnoremap <Leader>d cc<ESC>
 
 " TAB switches to previous buffer in normal, autocompletes in insert
 
