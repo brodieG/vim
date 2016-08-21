@@ -81,7 +81,8 @@ endif
 syn case match
 
 " Comment
-syn match rComment /\#.*/
+syn match rComment /\#\([^']\|$\).*/
+syn match rCommentRoxy /\#'.*/
 
 " Constant
 " string enclosed in double quotes
@@ -120,7 +121,7 @@ syn match rArrow /<\{1,2}-/
 syn match rArrow /->\{1,2}/
 
 " Type
-syn keyword rType array category character complex double function integer list logical matrix numeric vector data.frame 
+syn keyword rType array category character complex double function integer list logical matrix numeric vector data.frame
 
 " internal/primitive functions (probably has some duplicates)
 if exists("r_package_internal") && r_package_internal != 0
@@ -585,20 +586,21 @@ if version >= 508 || !exists("did_r_syn_inits")
   else
     command -nargs=+ HiLink hi def link <args>
   endif
-  HiLink rComment                 Comment      
+  HiLink rComment                 Comment
+  HiLink rCommentRoxy             Comment
   HiLink rConstant                Constant
   HiLink rString                  String
   HiLink rNumber                  Number
   HiLink rBoolean                 Boolean
   HiLink rFloat                   Float
   HiLink rStatement               Statement
-  HiLink rBaseStatement           Statement                 
-  HiLink rStatsStatement          Statement                 
-  HiLink rGraphicsStatement       Statement                               
-  HiLink rToolsStatement          Statement                               
-  HiLink rMethodsStatement        Statement                               
-  HiLink rUtilsStatement          Statement                               
-  HiLink rPrimitiveStatement      Statement                               
+  HiLink rBaseStatement           Statement
+  HiLink rStatsStatement          Statement
+  HiLink rGraphicsStatement       Statement
+  HiLink rToolsStatement          Statement
+  HiLink rMethodsStatement        Statement
+  HiLink rUtilsStatement          Statement
+  HiLink rPrimitiveStatement      Statement
   HiLink rConditional             Conditional
   HiLink rRepeat                  Repeat
   HiLink rIdentifier              Identifier
