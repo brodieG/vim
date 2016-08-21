@@ -25,7 +25,7 @@ set expandtab
 set shiftwidth=2
 set softtabstop=2
 set autoindent
-set smartindent
+set indentkeys-=0#
 
 " timouts in reasonable amout of time
 
@@ -44,8 +44,8 @@ vnoremap <Leader><Space> i{
 
 " Insert remove spaces
 
-nnoremap <Leader>o o<ESC>
-nnoremap <Leader>O O<ESC>
+nnoremap <Leader>o o<ESC>k
+nnoremap <Leader>O O<ESC>j
 
 " edit source vim file easily
 
@@ -78,6 +78,8 @@ vnoremap K <c-u>
 
 nnoremap j gj
 nnoremap k gk
+nnoremap gj j
+nnoremap gk k
 
 nnoremap H g^
 nnoremap L g$
@@ -125,6 +127,14 @@ nnoremap <Leader>c :noh<CR>
 set incsearch
 set hlsearch
 
+" Clear search highlighting once we enter insert mode
+
+augroup clearsearch
+  autocmd!
+  au InsertEnter * setlocal nohlsearch
+  au InsertLeave * setlocal hlsearch
+augroup END
+
 nnoremap <Leader>s :%s//gc<left><left><left>
 vnoremap <Leader>s :s//gc<left><left><left>
 
@@ -140,6 +150,7 @@ let g:pathogen_disabled = []
 call add(g:pathogen_disabled,'R-Vim-runtime')
 call add(g:pathogen_disabled,'nerdtree')
 call add(g:pathogen_disabled,'vim-markdown')
+call add(g:pathogen_disabled,'vim-ctrlspace')
 
 execute pathogen#infect()
 execute pathogen#helptags()
@@ -154,10 +165,10 @@ let g:ctrlp_by_filename = 1
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_mruf_max = 0
 " Clear CtrlP cache when coming back to vim and after writing a file.
-augroup ctrpl
-  autocmd!
-  au FocusGained,BufWritePost * CtrlPClearCache
-augroup END
+" augroup ctrpl
+"   autocmd!
+"   au FocusGained,BufWritePost * CtrlPClearCache
+" augroup END
 
 let g:scratch_height = 0.5
 
@@ -171,17 +182,23 @@ let g:scratch_height = 0.5
 
 nnoremap <Leader>x :StripWhitespace<CR>:write<CR>
 
-" Appearance, etc, after plugins to override
+" Appearance, etc, after plugins to override, note that we force wrap comments
+" but not normal text
 
 set linebreak
 set colorcolumn=81
 set ruler
+set textwidth=80
+set formatoptions=cqro
 
 set t_Co=256
 set cursorline
 hi cursorline cterm=none
 hi cursorlinenr ctermbg=3 ctermfg=black
 hi Comment ctermfg=darkgrey
+hi SpecialComment ctermfg=grey
+" hi SpecialComment cterm=underline
+hi Search cterm=none ctermbg=3
 
 " linenumbers " http://jeffkreeftmeijer.com/2012/relative-line-numbers-in-vim-for-super-fast-movement/
 " unfortunately focus/window events don't seem to work on mac terminal
@@ -207,3 +224,8 @@ augroup autosave
   " au FocusLost,WinLeave * silent! wa
   " au FocusGained,BufEnter * silent! !
 augroup END
+
+" spelling
+
+hi clear SpellBad
+hi SpellBad cterm=reverse
