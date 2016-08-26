@@ -33,10 +33,8 @@ syn case match
 syn match rRoxyTag contained /@\(description\|examples\|exportClass\|export\|importFrom\|import\|name\|note\|method\|param\|rdname\|return\|section\|seealso\|slot\)\>/
 
 syn region rRoxyDocTag contained start=/\\\S\+{/ end=/}/ contains=rRoxyDocTag
-" syn match rRoxyDocTagAtom contained /\\\a\+{.\{-\}}/
-" syn match rRoxyDocTag contained /\\\a\+{.\{-\}}/ contains=rRoxyDocTag
 syn match rComment /\#\([^']\|$\).*/ contains=@Spell
-syn match rCommentRoxy /\#'.*/ contains=rRoxyTag,rRoxyDocTag,rRoxyDocTagAtom,@Spell
+syn match rCommentRoxy /\#'.*/ contains=rRoxyTag,rRoxyDocTag,@Spell
 
 " Constant
 " string enclosed in double quotes
@@ -100,7 +98,6 @@ if version >= 508 || !exists("did_r_syn_inits")
   HiLink rCommentRoxy             Comment
   HiLink rRoxyTag                 SpecialComment
   HiLink rRoxyDocTag              SpecialComment
-  HiLink rRoxyDocTagAtom          SpecialComment
   HiLink rConstant                Constant
   HiLink rString                  String
   HiLink rNumber                  Number

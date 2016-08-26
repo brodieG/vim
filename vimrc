@@ -29,8 +29,8 @@ set indentkeys-=0#
 
 " timouts in reasonable amout of time
 
-set timeout timeoutlen=1000
-set ttimeout ttimeoutlen=100
+set timeout timeoutlen=2000
+set ttimeout ttimeoutlen=0
 
 " Map leader to <SPACE>
 
@@ -58,13 +58,13 @@ nnoremap ZZ <Nop>
 
 " copy paste to system clipboard
 
-nnoremap <Leader>Y "+Y
-nnoremap <Leader>y "+y
+nnoremap Y "+Y
+nnoremap y "+y
 nnoremap <Leader>P "+P
 nnoremap <Leader>p "+p
 
-vnoremap <Leader>Y "+Y
-vnoremap <Leader>y "+y
+vnoremap Y "+Y
+vnoremap y "+y
 vnoremap <Leader>P "+P
 vnoremap <Leader>p "+p
 
@@ -144,13 +144,24 @@ vnoremap <Leader>S :s//g<left><left>
 nnoremap <Leader>g :grep * -r<left><left><left><left>
 vnoremap <Leader>g :grep * -r<left><left><left><left>
 
-" Plugins
+" Plugins ----------------------------------------------------------------------
+
 " temporarily disable plugins
 let g:pathogen_disabled = []
 call add(g:pathogen_disabled,'R-Vim-runtime')
+call add(g:pathogen_disabled,'Nvim-R')
 call add(g:pathogen_disabled,'nerdtree')
 call add(g:pathogen_disabled,'vim-markdown')
 call add(g:pathogen_disabled,'vim-ctrlspace')
+
+" Nvim-R variables
+
+let R_in_buffer = 0
+let R_applescript = 0
+let R_tmux_split = 1
+let R_assign = 0
+
+" Run Pathogen
 
 execute pathogen#infect()
 execute pathogen#helptags()
