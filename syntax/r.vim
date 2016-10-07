@@ -30,10 +30,11 @@ syn case match
 
 " Comment Stuff
 
-syn match rRoxyTag contained /@\(description\|examples\|exportClass\|export\|importFrom\|import\|name\|note\|method\|param\|rdname\|return\|section\|seealso\|slot\)\>/
+syn match rRoxyTag contained /@\(aliases\|description\|examples\|exportClass\|export\|importFrom\|import\|keywords\|name\|note\|method\|param\|rdname\|return\|section\|seealso\|slot\|useDynLib\)\>/
 
 syn region rRoxyDocTag contained start=/\\\S\+{/ end=/}/ contains=rRoxyDocTag
-syn match rComment /\#\([^']\|$\).*/ contains=@Spell
+syn match rComment /\#\([^']\|$\).*/
+syn match rCommentDoc /\##\([^']\|$\).*/ contains=@Spell
 syn match rCommentRoxy /\#'.*/ contains=rRoxyTag,rRoxyDocTag,@Spell
 
 " Constant
@@ -95,6 +96,7 @@ if version >= 508 || !exists("did_r_syn_inits")
     command -nargs=+ HiLink hi def link <args>
   endif
   HiLink rComment                 Comment
+  HiLink rCommentDoc              Comment
   HiLink rCommentRoxy             Comment
   HiLink rRoxyTag                 SpecialComment
   HiLink rRoxyDocTag              SpecialComment
@@ -132,7 +134,8 @@ setlocal comments=:#'
 " Local settings for buffer
 
 setlocal spell
-setlocal spell
+nnoremap <buffer> gd :grep "<C-r><C-w> *<" * -r<return>
 
 " vim: ts=8 sw=2
+
 

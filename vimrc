@@ -9,6 +9,10 @@ set backspace=2 " make backspace work like most other apps
 set dir=~/.vimswap//,.,~/tmp,/var/tmp,/tmp
 syntax on
 
+" Allow selecting past end of line
+
+set virtualedit=block
+
 " files to ignore, used right now for CtrlP
 
 set wildignore+=*.o,*.so
@@ -46,6 +50,10 @@ vnoremap <Leader><Space> i{
 
 nnoremap <Leader>o o<ESC>k
 nnoremap <Leader>O O<ESC>j
+
+" Text wrap in paragraph
+
+nnoremap <Leader>q gqip
 
 " edit source vim file easily
 
@@ -141,8 +149,16 @@ vnoremap <Leader>s :s//gc<left><left><left>
 nnoremap <Leader>S :s//g<left><left>
 vnoremap <Leader>S :s//g<left><left>
 
+nnoremap <Leader>G :grep <C-r><C-w> * -r<left><left><left><left>
 nnoremap <Leader>g :grep * -r<left><left><left><left>
 vnoremap <Leader>g :grep * -r<left><left><left><left>
+
+augroup rmd
+  autocmd!
+  au BufNewFile,BufRead *.Rmd set filetype=Rmd
+augroup END
+
+nnoremap gd :grep "<C-r><C-w> *<" * -r<left><left><left><left><left><left><return><return>
 
 " Plugins ----------------------------------------------------------------------
 
@@ -169,6 +185,10 @@ filetype plugin indent on
 augroup rmd
   autocmd!
   au BufNewFile,BufRead *.Rmd set filetype=Rmd
+augroup END
+augroup md
+  autocmd!
+  au BufNewFile,BufRead *.md setlocal spell
 augroup END
 
 nnoremap <Leader>t :CtrlPMixed<CR>
