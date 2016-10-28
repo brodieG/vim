@@ -128,8 +128,7 @@ let b:current_syntax="r"
 
 " Comment stuff
 
-setlocal comments=:#
-setlocal comments=:#'
+setlocal comments=:#',:###,:##,:#
 
 " Local settings for buffer
 
