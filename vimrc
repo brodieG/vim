@@ -149,9 +149,9 @@ vnoremap <Leader>s :s//gc<left><left><left>
 nnoremap <Leader>S :s//g<left><left>
 vnoremap <Leader>S :s//g<left><left>
 
-nnoremap <Leader>G :grep <C-r><C-w> * -r<left><left><left><left>
-nnoremap <Leader>g :grep * -r<left><left><left><left>
-vnoremap <Leader>g :grep * -r<left><left><left><left>
+nnoremap <Leader>G :grep <C-r><C-w>  -r<left><left><left>
+nnoremap <Leader>g :grep  -r<left><left><left>
+vnoremap <Leader>g :grep  -r<left><left><left>
 
 augroup rmd
   autocmd!
