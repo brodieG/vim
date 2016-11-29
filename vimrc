@@ -158,8 +158,6 @@ augroup rmd
   au BufNewFile,BufRead *.Rmd set filetype=Rmd
 augroup END
 
-nnoremap gd :grep "<C-r><C-w> *<" * -r<left><left><left><left><left><left><return><return>
-
 " Plugins ----------------------------------------------------------------------
 
 " temporarily disable plugins
