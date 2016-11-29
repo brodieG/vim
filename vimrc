@@ -153,15 +153,6 @@ nnoremap <Leader>G :grep <C-r><C-w>  -r<left><left><left>
 nnoremap <Leader>g :grep  -r<left><left><left>
 vnoremap <Leader>g :grep  -r<left><left><left>
 
-augroup rmd
-  autocmd!
-  au BufNewFile,BufRead *.Rmd set filetype=Rmd
-augroup END
-
-augroup md
-  autocmd!
-  au BufNewFile,BufRead *.md set filetype=markdown
-augroup END
 " Plugins ----------------------------------------------------------------------
 
 " temporarily disable plugins
@@ -187,10 +178,12 @@ filetype plugin indent on
 augroup rmd
   autocmd!
   au BufNewFile,BufRead *.Rmd set filetype=Rmd
+  au BufNewFile,BufRead *.Rmd setlocal spell
 augroup END
 augroup md
   autocmd!
   au BufNewFile,BufRead *.md setlocal spell
+  au BufNewFile,BufRead *.md set filetype=markdown
 augroup END
 
 nnoremap <Leader>t :CtrlPMixed<CR>
