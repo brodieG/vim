@@ -158,6 +158,10 @@ augroup rmd
   au BufNewFile,BufRead *.Rmd set filetype=Rmd
 augroup END
 
+augroup md
+  autocmd!
+  au BufNewFile,BufRead *.md set filetype=markdown
+augroup END
 " Plugins ----------------------------------------------------------------------
 
 " temporarily disable plugins
