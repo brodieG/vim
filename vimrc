@@ -53,7 +53,7 @@ nnoremap <Leader>O O<ESC>j
 
 " Call Rex
 
-nnoremap <Leader>r :Rex
+nnoremap <Leader>r :Rex<CR>
 
 " Text wrap in paragraph
 
