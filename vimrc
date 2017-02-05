@@ -8,6 +8,7 @@ set showcmd
 set backspace=2 " make backspace work like most other apps
 set dir=~/.vimswap//,.,~/tmp,/var/tmp,/tmp
 syntax on
+syntax sync minlines=500
 
 " Allow selecting past end of line
 
