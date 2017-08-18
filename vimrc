@@ -99,6 +99,11 @@ onoremap L g$
 
 set scrolloff=5
 
+" Better insert mode entry
+
+nnoremap <Leader>a ea
+nnoremap <Leader>A Ea
+
 " highlight last inserted text
 
 nnoremap gV `[v`]
@@ -121,6 +126,8 @@ inoremap <S-Tab> <c-p>
 " jk to exit interactive mode
 
 inoremap jk <ESC>l
+inoremap jj <ESC>l
+inoremap kj <ESC>l
 
 " auto braces; need to figure out better options for parens, quotes, etc
 
