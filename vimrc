@@ -52,6 +52,10 @@ vnoremap <Leader><Space> i{
 nnoremap <Leader>o o<ESC>k
 nnoremap <Leader>O O<ESC>j
 
+" Call Rex
+
+nnoremap <Leader>r :Rex<CR>
+
 " Text wrap in paragraph
 
 nnoremap <Leader>q gqip
