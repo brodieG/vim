@@ -7,8 +7,14 @@ set wildmenu wildmode=longest:full,full
 set showcmd
 set backspace=2 " make backspace work like most other apps
 set dir=~/.vimswap//,.,~/tmp,/var/tmp,/tmp
+
+" syntax
+
 syntax on
-syntax sync minlines=500
+augroup syntax
+  au!
+  au BufEnter * syntax sync minlines=1000
+augroup END
 
 " Allow selecting past end of line
 
@@ -266,3 +272,4 @@ augroup END
 
 hi clear SpellBad
 hi SpellBad cterm=reverse
+
