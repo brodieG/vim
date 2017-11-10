@@ -130,7 +130,7 @@ inoremap <S-Tab> <c-p>
 " jk to exit interactive mode
 
 inoremap jk <ESC>l
-inoremap kj <ESC>l
+" inoremap kj <ESC>l
 
 " auto braces; need to figure out better options for parens, quotes, etc
 
@@ -257,7 +257,7 @@ augroup END
 
 augroup autosave
   autocmd!
-  au InsertLeave * w
+  au InsertLeave *.* w
   " au FocusLost,WinLeave * silent! wa
   " au FocusGained,BufEnter * silent! !
 augroup END
