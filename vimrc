@@ -170,6 +170,10 @@ nnoremap <Leader>G :grep <C-r><C-w>  -r<left><left><left>
 nnoremap <Leader>g :grep  -r<left><left><left>
 vnoremap <Leader>g :grep  -r<left><left><left>
 
+" Easy save
+
+nnoremap <Leader>w :w<CR>
+
 " Plugins ----------------------------------------------------------------------
 
 " temporarily disable plugins
@@ -255,17 +259,6 @@ augroup numbers
   au FocusGained * set relativenumber
   au InsertEnter * set norelativenumber | set number
   au InsertLeave * set relativenumber
-augroup END
-
-" autosave and auto-reload; first saves whenever we lose focus leave, the
-" other kicks off autoread (thanks fphilipe); seems like the focus events
-" don't seem to work
-
-augroup autosave
-  autocmd!
-  au InsertLeave *.* w
-  " au FocusLost,WinLeave * silent! wa
-  " au FocusGained,BufEnter * silent! !
 augroup END
 
 " spelling
