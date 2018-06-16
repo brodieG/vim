@@ -160,15 +160,15 @@ augroup clearsearch
   au InsertLeave * setlocal hlsearch
 augroup END
 
-nnoremap <Leader>s :%s//gc<left><left><left>
-vnoremap <Leader>s :s//gc<left><left><left>
+nnoremap <Leader>s q:i%s//gc<left><left><left>
+vnoremap <Leader>s q:is//gc<left><left><left>
 
-nnoremap <Leader>S :s//g<left><left>
-vnoremap <Leader>S :s//g<left><left>
+nnoremap <Leader>S q:is//g<left><left>
+vnoremap <Leader>S q:is//g<left><left>
 
-nnoremap <Leader>G :grep <C-r><C-w>  -r<left><left><left>
-nnoremap <Leader>g :grep  -r<left><left><left>
-vnoremap <Leader>g :grep  -r<left><left><left>
+nnoremap <Leader>G yiwq:igrep <ESC>pa -r<left><left><left> 
+nnoremap <Leader>g q:igrep  -r<left><left><left>
+vnoremap <Leader>g q:igrep  -r<left><left><left>
 
 " Easy save
 
