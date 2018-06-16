@@ -266,3 +266,16 @@ augroup END
 hi clear SpellBad
 hi SpellBad cterm=reverse
 
+" markdown folding
+
+function! MarkdownLevel()
+    let h = matchstr(getline(v:lnum), '^#\+')
+    if empty(h)
+        return "="
+    else
+        return ">" . len(h)
+    endif
+endfunction
+
+au BufEnter *.{md,Rmd} setlocal foldexpr=MarkdownLevel()
+au BufEnter *.{md,Rmd} setlocal foldmethod=expr
