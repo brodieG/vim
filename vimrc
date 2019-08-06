@@ -142,6 +142,11 @@ inoremap jk <ESC>l
 
 inoremap { {}<ESC>i
 
+" Increase and decrease pane size
+
+nnoremap <Leader>= <c-w>+
+nnoremap <Leader>- <c-w>-
+
 " Search settings:
 "   unset the "last search pattern"
 "   <Leader>s makes it easier to search / replace, or search alone, and also
@@ -191,11 +196,13 @@ let R_applescript = 0
 let R_tmux_split = 1
 let R_assign = 0
 
-" Run Pathogen
+" vim-markdown-folding
 
 execute pathogen#infect()
 execute pathogen#helptags()
-filetype plugin indent on
+if has("autocmd")
+  filetype plugin indent on
+endif
 augroup rmd
   autocmd!
   au BufNewFile,BufRead *.Rmd set filetype=Rmd
