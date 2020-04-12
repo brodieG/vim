@@ -171,10 +171,9 @@ vnoremap <Leader>s q:is//gc<left><left><left>
 nnoremap <Leader>S q:is//g<left><left>
 vnoremap <Leader>S q:is//g<left><left>
 
-nnoremap <Leader>G yiwq:igrep <ESC>pa -r<left><left><left> 
-nnoremap <Leader>g q:igrep  -r<left><left><left>
-vnoremap <Leader>g q:igrep  -r<left><left><left>
-
+nnoremap <Leader>G yiwq:igrep <ESC>pa -rI --exclude-dir="\.{git,svn}" .<left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left>
+nnoremap <Leader>g q:igrep  -rI --exclude-dir="\.{git,svn}" .<left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left>
+vnoremap <Leader>g q:igrep  -rI --exclude-dir="\.{git,svn}" .<left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left>
 " Easy save
 
 nnoremap <Leader>w :w<CR>
