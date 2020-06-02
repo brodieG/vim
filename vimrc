@@ -171,9 +171,12 @@ vnoremap <Leader>s q:is//gc<left><left><left>
 nnoremap <Leader>S q:is//g<left><left>
 vnoremap <Leader>S q:is//g<left><left>
 
-nnoremap <Leader>G yiwq:igrep <ESC>pa -rI --exclude-dir="\.{git,svn}" .<left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left>
-nnoremap <Leader>g q:igrep  -rI --exclude-dir="\.{git,svn}" .<left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left>
-vnoremap <Leader>g q:igrep  -rI --exclude-dir="\.{git,svn}" .<left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left>
+" Grep excluding binaries and git/svn
+
+nnoremap <Leader>G yiwq:igrep <ESC>pa  -rI --exclude-dir=.git --exclude-dir=.svn<ESC>3Bhi
+nnoremap <Leader>g q:igrep  -rI --exclude-dir=.git --exclude-dir=.svn<ESC>3Bhi
+vnoremap <Leader>g q:igrep  -rI --exclude-dir=.git --exclude-dir=.svn<ESC>3Bhi
+
 " Easy save
 
 nnoremap <Leader>w :w<CR>
