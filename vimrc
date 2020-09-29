@@ -38,6 +38,13 @@ set softtabstop=2
 set autoindent
 set indentkeys-=0#
 
+au BufEnter *.{c,h} setlocal noexpandtab
+au BufEnter *.{c,h} setlocal shiftwidth=4
+au BufEnter *.{c,h} setlocal softtabstop=4
+
+au BufEnter *.{r,R} setlocal shiftwidth=2
+au BufEnter *.{r,R} setlocal softtabstop=2
+
 " timouts in reasonable amout of time
 
 set timeout timeoutlen=2000
@@ -215,6 +222,10 @@ augroup md
   au BufNewFile,BufRead *.md setlocal spell
   au BufNewFile,BufRead *.md set filetype=markdown
 augroup END
+augroup txt
+  autocmd!
+  au BufNewFile,BufRead *.txt setlocal spell
+augroup END
 
 nnoremap <Leader>t :CtrlPMixed<CR>
 let g:ctrlp_by_filename = 0
@@ -228,8 +239,9 @@ let g:ctrlp_mruf_max = 0
 
 let g:scratch_height = 0.5
 
-" whitespace trimming; for now don't do it auto anymore to avoid issues with
-" contributions to other repos
+" Whitespace
+"
+" Used to auto-trim
 
 " augroup whitespace
 "   autocmd!
@@ -238,9 +250,15 @@ let g:scratch_height = 0.5
 
 nnoremap <Leader>x :StripWhitespace<CR>:write<CR>
 
+" show tabs
+
+set list
+set listchars=tab:>-
+
 " Appearance, etc, after plugins to override, note that we force wrap comments
 " but not normal text
 
+colorscheme default
 set linebreak
 set colorcolumn=81
 set ruler
@@ -288,3 +306,5 @@ endfunction
 
 au BufEnter *.{md,Rmd} setlocal foldexpr=MarkdownLevel()
 au BufEnter *.{md,Rmd} setlocal foldmethod=expr
+
+
