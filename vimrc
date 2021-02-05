@@ -69,6 +69,10 @@ nnoremap <Leader>O O<ESC>j
 
 nnoremap <Leader>r :Rex<CR>
 
+" Open current directory
+
+nnoremap <Leader>h :e %:h
+
 " Text wrap in paragraph
 
 nnoremap <Leader>q gqip
@@ -287,6 +291,8 @@ augroup numbers
   au InsertEnter * set norelativenumber | set number
   au InsertLeave * set relativenumber
 augroup END
+
+nnoremap <Leader>nn :set norelativenumber<CR>:set nonumber<CR>
 
 " spelling
 
