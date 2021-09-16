@@ -38,14 +38,22 @@ set softtabstop=2
 set autoindent
 set indentkeys-=0#
 
-au BufEnter *.{c,h} setlocal noexpandtab
-au BufEnter *.{c,h} setlocal shiftwidth=4
-au BufEnter *.{c,h} setlocal softtabstop=4
+au BufEnter *.{c,h,y} setlocal noexpandtab
+au BufEnter *.{c,h,y} setlocal shiftwidth=4
+au BufEnter *.{c,h,y} setlocal softtabstop=4
+au BufEnter *.{r,R} setlocal shiftwidth=4
+au BufEnter *.{r,R} setlocal softtabstop=4
 
-au BufEnter *.{r,R} setlocal shiftwidth=2
-au BufEnter *.{r,R} setlocal softtabstop=2
+au BufEnter *.{txt} setlocal wrap
+au BufEnter *.{txt} setlocal textwidth=74
+au BufEnter *.{txt} setlocal formatoptions=cqrot
 
-" timouts in reasonable amout of time
+"au BufEnter *.{c,h} setlocal shiftwidth=2
+"au BufEnter *.{c,h} setlocal softtabstop=2
+"au BufEnter *.{r,R} setlocal shiftwidth=2
+"au BufEnter *.{r,R} setlocal softtabstop=2
+
+" timeouts in reasonable amout of time
 
 set timeout timeoutlen=2000
 set ttimeout ttimeoutlen=0
@@ -184,9 +192,14 @@ vnoremap <Leader>S q:is//g<left><left>
 
 " Grep excluding binaries and git/svn
 
-nnoremap <Leader>G yiwq:igrep <ESC>pa  -rI --exclude-dir=.git --exclude-dir=.svn<ESC>3Bhi
-nnoremap <Leader>g q:igrep  -rI --exclude-dir=.git --exclude-dir=.svn<ESC>3Bhi
-vnoremap <Leader>g q:igrep  -rI --exclude-dir=.git --exclude-dir=.svn<ESC>3Bhi
+nnoremap <Leader>G yiwq:igrep <ESC>pa  -ri<ESC>Bhi
+nnoremap <Leader>g q:igrep  -ri<ESC>Bhi
+vnoremap <Leader>g q:igrep  -ri<ESC>Bhi
+
+" Use ag over grep
+if executable('ag')
+  set grepprg=ag\ --nogroup\ --nocolor\ --path-to-ignore\ ~/.gitignore_global
+endif
 
 " Easy save
 
@@ -241,7 +254,13 @@ let g:ctrlp_mruf_max = 0
 "   au FocusGained,BufWritePost * CtrlPClearCache
 " augroup END
 
-let g:scratch_height = 0.5
+" The Silver Searcher
+if executable('ag')
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
 
 " Whitespace
 "
